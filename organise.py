@@ -23,7 +23,7 @@ for file_ in filelist:
             for c in range(i):
                 tv = tv + segments[c] + " "
             tv = tv.strip()    
-            print(season,ep,tv)
+            print(tv,":Season ",season)
             if os.path.exists(os.path.join(path, "Series")):
                 
                 if not os.path.exists(os.path.join(path,"Series", tv)):
@@ -57,8 +57,11 @@ filelist = os.listdir(path)
 for file_ in filelist:
     name, ext = os.path.splitext(file_)
     ext = ext[1:]
+
     if (name == "Series" or name=="Movies") or (name == "organise" and ext == "py"):
         continue
+
+    print(file_)
     if os.path.exists(os.path.join(path, "Movies")):
         shutil.move(os.path.join(path, file_), os.path.join(path, "Movies"))
     else:
